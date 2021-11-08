@@ -1,0 +1,81 @@
+apollo:
+  bootstrap:
+    enabled: false
+    namespaces: application
+
+zk:
+  host: 127.0.0.1:2181
+  force:
+    update: true
+
+sharding:
+  url: jdbc:mysql://xxxx:3306/xxx?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Hongkong&zeroDateTimeBehavior=convertToNull
+  username: xxxx
+  password: xxxx
+  driver-class-name: com.mysql.cj.jdbc.Driver
+  db-name: xxxx
+  column: exec_date
+  show-sql: true
+  validation-query: select 1
+  validation-query-timeout: 1000
+  max-active: 30
+  min-idle: 10
+
+mybatis-plus:
+  global-config:
+    banner: false
+
+loader:
+  schedule:
+    rise: 10000
+    normal: 0 0 3 * * ?
+
+es:
+  host: xxxx
+  port: 9300
+  cluster:
+  xpack: xxxx:xxxx
+
+kafka:
+  servers: xxxx:9092
+  groupId: xxxx
+  autoOffsetReset: latest
+  concurrency: 1
+
+redis:
+  host: xxxx
+  port: 6379
+  password: 123456
+  database: 3
+  timeout: 2000
+  max-pool: 100
+
+core:
+  integration:
+    notify:
+      topic: CACHE_S_NOTIFY_TOPIC.*
+  retry:
+    notify:
+      topic: CACHE_RETRY_TOPIC
+  publish:
+    notify:
+      topic: CACHE_N_NOTIFY_TOPIC_.*
+
+canal:
+  watchDbs: xxxx,xxxx
+  watchTables: '*'
+  watchTypes: INSERT,UPDATE,DELETE
+  isDDl: '*'
+  tableMappers: xxxx
+  mq:
+    topic:
+      record: IDS_DB_DATA_NOTIFY_DR
+      empatt: IDS_DB_DATA_NOTIFY_EP
+
+counter:
+  enable: true
+  cron: 0 0/2 * * * *
+
+log:
+  debug: false
+

@@ -1,0 +1,12 @@
+apollo:
+  bootstrap:
+    enabled: true
+    namespaces: application
+app:
+  id: access-cache-loader
+spring:
+  profiles:
+    active: dev
+zk:
+  force:
+    update: true
